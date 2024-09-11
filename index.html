@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function getComputerChoice(){
+
+            let randomChoice = parseInt(Math.random()*3)+1
+
+            if (randomChoice == 1) {
+                return "rock";
+            }else if (randomChoice == 2){
+                return "paper";
+            }
+            else if (randomChoice == 3){
+                return "scissor";
+            }
+            
+            return null
+        }
+
+        function getHumanChoice(){
+
+            let humanInput = " ";
+
+            while(!["rock", "paper", "scissor"].includes(humanInput.toLowerCase())){
+                humanInput = prompt("Enter 'rock', 'paper', or 'scissor'.");
+            }
+
+            return humanInput;
+
+        }
+
+        let humanScore = 0;
+        let computerScore = 0;
+
+        function playRound(humanChoice, computerChoice) {
+
+            let result;
+
+            if (humanChoice == computerChoice ){
+                console.log("draw")
+            }else if(
+                humanChoice == "rock" && computerChoice == "paper" ||
+                humanChoice == "paper" && computerChoice == "scissor" ||
+                humanChoice == "scissor" && computerChoice == "rock" 
+            ) {
+                console.log(`You lose! `);
+                computerScore ++;
+            }
+
+        }
+
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+
+        playRound(humanSelection, computerSelection);
+
+
+
+
+
+
+        
+
+    </script>
+</body>
+</html>
